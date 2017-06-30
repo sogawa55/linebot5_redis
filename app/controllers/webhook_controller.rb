@@ -30,7 +30,6 @@ class WebhookController < ApplicationController
     context = $redis.set('user_id',response.body['context'])
     end
    
-    
     message = response.body['utt']
      
     output_text = message
