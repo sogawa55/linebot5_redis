@@ -23,7 +23,7 @@ class WebhookController < ApplicationController
     mode = response.body["mode"]
     context = $redis.set('user_id', from)
     lastmode = $redis.set('mode', mode)
-    response =  docomo_client.chat(user_text, lastmode, context)
+    response =  docomo_client.chat(user_text, ontext)
     context = $redis.set('user_id', response.body["context"])
     lastmode = $redis.set('mode', response.body["mode"])
     
