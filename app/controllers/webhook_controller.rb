@@ -20,7 +20,7 @@ class WebhookController < ApplicationController
      docomo_client = DocomoClient.new(api_key: ENV["DOCOMO_API_KEY"])
     
     from = response.body['context']
-    mode = response.body['mode']
+    mode = "dialogue"
     context = $redis.set('user_id', from)
     lastmode = $redis.set('mode', mode)
     response =  docomo_client.chat(user_text, lastmode, context)
