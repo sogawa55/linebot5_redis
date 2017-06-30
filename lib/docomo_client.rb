@@ -5,7 +5,7 @@ class DocomoClient
     @api_key = api_key
   end
  
-  def chat(message, mode=nil,da=nil,context=nil)
+  def chat(message, context=nil)
     client = Docomoru::Client.new(api_key: ENV["DOCOMO_API_KEY"])
     response = client.create_dialogue(message, context:context)
  
