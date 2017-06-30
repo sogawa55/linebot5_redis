@@ -19,7 +19,7 @@ class WebhookController < ApplicationController
   
      docomo_client = DocomoClient.new(api_key: ENV["DOCOMO_API_KEY"])
     
-    from = response.body['context']
+    from = request.body['context']
     context = $redis.set('user_id',from)
     response =  docomo_client.dialogue(user_text, context)
     context = $redis.set('user_id',response.body['context'])
