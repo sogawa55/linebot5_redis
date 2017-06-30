@@ -19,7 +19,7 @@ class WebhookController < ApplicationController
   
      docomo_client = DocomoClient.new(api_key: ENV["DOCOMO_API_KEY"])
     
-    redis = Redis.ne(ENV["REDISCLOUD_URL"])
+    redis = Redis.new(ENV["REDISCLOUD_URL"])
     redis.set('user_id',params['id'])
     
     if redis.get('user_id').nil? then 
