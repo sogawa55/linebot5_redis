@@ -27,9 +27,9 @@ class WebhookController < ApplicationController
     lastmode = $redis.set('mode', response.body["mode"])
     
    
-    message = response.body['utt']
+    message = response.body['utt'] 
      
-    output_text = message
+    output_text = message　+ "だっちゃ♪"
 
     client = LineClient.new(CHANNEL_ACCESS_TOKEN, OUTBOUND_PROXY)
     res = client.reply(replyToken, output_text)
