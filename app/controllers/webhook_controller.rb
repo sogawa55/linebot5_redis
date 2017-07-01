@@ -11,11 +11,10 @@ class WebhookController < ApplicationController
       render :nothing => true, status: 470
     end
     
-    params = JSON.parse(request.body.read)
     
     event = params["events"][0]
     replyToken = event["replyToken"]
-    user_text = event["text"].to_s
+    user_text = event["message"]["text"]
   
      docomo_client = DocomoClient.new(api_key: ENV["DOCOMO_API_KEY"])
     
