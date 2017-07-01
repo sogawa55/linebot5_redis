@@ -30,7 +30,9 @@ class WebhookController < ApplicationController
     message = response.body['utt'] 
      
     output_text = message.to_s
-    ram_text = output_text + "だっちゃ♪"
+    mark = ["♪","。","★"]
+    x = rand(0..2)
+    ram_text = output_text + "だっちゃ" + mark[x].to_s
 
     client = LineClient.new(CHANNEL_ACCESS_TOKEN, OUTBOUND_PROXY)
     res = client.reply(replyToken, ram_text)
