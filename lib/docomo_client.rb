@@ -7,7 +7,7 @@ class DocomoClient
  
   def chat(message, mode=nil,context=nil)
     client = Docomoru::Client.new(api_key: ENV["DOCOMO_API_KEY"])
-    response = client.create_dialogue(message, { 'mode':mode, 'context':context, 'sex':"女", 'nickname':"ラム", 'age':18,'bloodtype':"AB" })
+    response = client.create_dialogue(message, { 'mode':mode, 'context':context, 'sex':"女", 'nickname':"ラム", 'age':20,'bloodtype':"O" })
  
     return response
   end
