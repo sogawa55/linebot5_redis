@@ -29,10 +29,11 @@ class WebhookController < ApplicationController
    
     message = response.body['utt'] 
      
-    output_text = message　+ "だっちゃ♪"
+    output_text = message.to_s
+    ram_text = output_text + "だっちゃ♪"
 
     client = LineClient.new(CHANNEL_ACCESS_TOKEN, OUTBOUND_PROXY)
-    res = client.reply(replyToken, output_text)
+    res = client.reply(replyToken, ram_text)
 
     if res.status == 200
       logger.info({success: res})
