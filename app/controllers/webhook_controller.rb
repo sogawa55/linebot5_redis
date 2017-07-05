@@ -35,7 +35,8 @@ class WebhookController < ApplicationController
     x = rand(0..4)
     gobi = ["だっちゃ","っちゃ"]
     y = rand(0..1)
-    output_text.sub(/私/, "うち")
+    output_text.gsub(/私/, "うち")
+    output_text.gsub(/。|です|ですよ|でした|だね|/,"")
     ram_text = output_text + gobi[y].to_s + mark[x].to_s
 
     client = LineClient.new(CHANNEL_ACCESS_TOKEN, OUTBOUND_PROXY)
