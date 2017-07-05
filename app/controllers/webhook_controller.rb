@@ -30,8 +30,7 @@ class WebhookController < ApplicationController
     message = response.body['utt'] 
      
     output_text = message.to_s
-    mark = ["♪","☆","★","☆彡","＾＾"]
-
+    mark = ["☆","★","♪","♥" ]
     x = rand(0..4)
     gobi = ["だっちゃ","っちゃ"]
     y = rand(0..1)
